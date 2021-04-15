@@ -1,7 +1,7 @@
 # What's this
 
 A quick && dirty fork of https://github.com/featurist/oracle-client-buildpack as the Oracle server I need to connect with
-seems to be very old, I just new an older version of the oracle instant client lib.
+seems to be very old, I just need an older version of the oracle instant client lib.
 
 This will install Oracle Client libraries (11.2.0.4).
 
