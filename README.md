@@ -13,39 +13,25 @@ It is intended to be used in conjunction with other buildpacks (e.g. node) for a
 
 ## Usage
 
-Either add `https://github.com/LaloMores/oracle-client-buildpack` to `.buildpacks` or set `BUILDPACK_URL=https://github.com/LaloMores/oracle-client-buildpack`
+1. Dependency buildpack
 
-> You also need API buildpack, preceding this one. And an `Aptfile` in the root of your app containing:
+Add the libaio buildpack first in order to provide libaio1:
 
-I didn't understand the first sentence in this comment at first. From a different buildpack, I got that I needed to add an extra buildpack.
+heroku buildpacks:add https://github.com/heroku/heroku-buildpack-apt.git --index 1
 
-I added this one:
-
-https://github.com/heroku/heroku-buildpack-apt.git (at index 1)
-
-Then added the file `Aptfile` in the root of my source code with this content:
+Then add a file named `Aptfile` in the root of your source code with this content:
 
 ```
 libaio1
 ```
 
+
+2. Add this buildpack
+
+heroku buildpacks:add https://github.com/LaloMores/oracle-client-buildpack --index 2
+
+Alternatively, use `.buildpacks` to add both buildpacks in order.
+
 ## Testing
 
 _Edit_: Not sure if this works.
-
-### Setup
-
-```
-heroku create --buildpack https://github.com/heroku/heroku-buildpack-testrunner
-```
-
-### Run
-
-```
-git push heroku master
-heroku run tests
-```
-
-## \*They're Hiring!
-
-Featurist provides full stack, feature driven development teams. Want to join then? Check out [our career opportunities](https://www.featurist.co.uk/careers/).
