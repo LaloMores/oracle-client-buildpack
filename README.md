@@ -23,7 +23,7 @@ I added this one:
 
 https://github.com/heroku/heroku-buildpack-apt.git (at index 1)
 
-Then added the file `Aptfile` in the root my source with this content:
+Then added the file `Aptfile` in the root of my source code with this content:
 
 ```
 libaio1
